@@ -1,0 +1,23 @@
+.authorizationMessage {
+    height: 285.391px;
+    display: flex;
+    align-items: center;
+}
+
+.authorizationMessage p {
+    font-size: 20px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #ffffff;
+}
+
+@media only screen and (max-width: 450px) {
+    .authorizationMessage {
+        width: 337px;
+        height: 271.188px;        
+    }
+}
+

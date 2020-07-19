@@ -1,0 +1,122 @@
+.loginSection {
+    max-width: 700px;
+    background-color: rgb(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;    
+}
+
+.logOutButton {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.wrapper {
+    margin-top: 113px;
+    margin-bottom: 180px;
+}
+
+.headerSection {
+    border-bottom: solid 3px #333333;
+    padding-bottom: 24px;
+}
+
+.headerSection h1 {
+    font-size: 40px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #ffffff;
+}
+
+.headerSection p {
+    font-size: 26px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #aaaaaa;
+    margin-top: 9px;
+}
+
+.logoSection {
+    margin-top: 31px;
+}
+
+
+
+.bottomColumns {
+    margin-top: 27px;
+    display: flex;
+    color: royalblue;
+}
+
+.bottomColumns .column {
+    width: 170px;
+}
+
+.bottomColumns .column h2 {
+    font-size: 13px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #ffffff;
+}
+
+.bottomColumns .column p {
+    font-size: 13px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.38;
+    letter-spacing: normal;
+    color: #aaaaaa;
+}
+
+.bottomColumns .column:last-child {
+    margin-left: 60px;
+}
+
+
+
+
+@media only screen and (max-width: 450px) {
+    .loginSection {
+        background: none;
+    }
+    .wrapper {
+        margin-top: 49px;
+        margin-bottom: 169.5px;
+    }
+    .headerSection {
+        padding-bottom: 27px;
+    }
+    .headerSection h1 {
+        font-size: 26px;
+    }
+    .headerSection p {
+        margin-top: 3px;
+        font-size: 20px;
+    }
+    .logoSection {
+        margin-top: 29px;
+    }
+   
+    .bottomColumns {
+        display: none;
+    }    
+}
