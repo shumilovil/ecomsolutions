@@ -6,3 +6,9 @@
 body {
   background-color: black;      
 }
+
+button {
+  margin: 0px;
+  padding: 0px;
+  border: none;
+}

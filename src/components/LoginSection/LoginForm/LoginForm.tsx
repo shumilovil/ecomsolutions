@@ -1,68 +1,80 @@
-import React, { useState, ChangeEvent } from 'react';
+import React, { useState } from 'react';
+import { useFormik } from 'formik';
 import './LoginForm.css';
 
+const validate = (values: any) => {
+    const errors: any = {};
+    if (!values.username) {
+        errors.username = 'Required';
+    }
+
+    if (!values.password) {
+        errors.password = 'Required';
+    }
+
+    return errors;
+};
+
 type PropsType = {
-    logIn: () => void
     logOut: () => void
+    showResetPasswordModal: (status: boolean) => void
+    authorize: (login: string, password: string) => void
 }
 
 export const LoginForm = (props: PropsType) => {
 
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+    const formik = useFormik({
+        initialValues: {
+            username: '',
+            password: ''
+        },
+        validate,
+        onSubmit: values => {
+            props.authorize(values.username, values.password);
+        },
+    });
+
     const [showPassword, setShowPassword] = useState(false);
-
-
-    const handleFieldChange = (e: ChangeEvent<HTMLInputElement>) => {
-        if (e.target.name === 'username') {
-            setUsername(e.target.value)
-        }
-        if (e.target.name === 'password') {
-            setPassword(e.target.value)
-        }
-    }
-
-    const onSubmit = () => {
-        if (username !== '' && password !== '') {
-            props.logIn()
-        }
-        else {
-            if (username === '') {
-                alert('Username can\'t be empty!')
-            }
-            if (password === '') {
-                alert('Password can\'t be empty!')
-            }
-        }
-    }
 
     return (
         <div className='formSection'>
 
-            <p>Username</p>
-            <input type="text"
-                name="username"
-                id="username"
-                onChange={handleFieldChange}
-                value={username} />
+            <form onSubmit={formik.handleSubmit}>
 
-            <p>Password</p>
-            <div className='inputContainer'>
-                <input type={showPassword ? 'text' : 'password'}
-                    name="password"
-                    id="password"
-                    onChange={handleFieldChange}
-                    value={password} />
-                <div className='showOption'
-                    onClick={() => { setShowPassword(!showPassword) }}>
-                    <p>{showPassword ? 'Hide' : 'Show'}</p>
+                <p>Username</p>
+                <input
+                    id="username"
+                    name="username"
+                    type="text"
+                    onChange={formik.handleChange}
+                    value={formik.values.username}
+                    onBlur={formik.handleBlur}
+                    className={formik.errors.username ? (formik.touched.username ? 'formError' : '') : ''}
+                />
+
+                <p>Password</p>
+                <div className='inputContainer'>
+                    <input
+                        id="password"
+                        name="password"
+                        type={showPassword ? 'text' : 'password'}
+                        onChange={formik.handleChange}
+                        value={formik.values.password}
+                        onBlur={formik.handleBlur}
+                        className={formik.errors.password ? (formik.touched.password ? 'formError' : '') : ''}
+                    />
+                    <div className='showOption' onClick={() => { setShowPassword(!showPassword) }}>
+                        <p>{showPassword ? 'Hide' : 'Show'}</p>
+                    </div>
                 </div>
-            </div>
 
-            <div className='submitOrForgotPassword'>
-                <div className='submitButton' onClick={onSubmit}>Sign In</div>
-                <p className='forgetPasswordOption'>Forgot password?</p>
-            </div>
+                <div className='submitOrForgotPassword'>
+                    <button className='submitButton' type='submit'>Sign In</button>
+                    <p className='forgetPasswordOption' onClick={() => { props.showResetPasswordModal(true) }}>Forgot password?</p>
+                </div>
+
+            </form>
+
         </div>
     )
 }

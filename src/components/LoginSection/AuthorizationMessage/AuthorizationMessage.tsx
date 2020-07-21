@@ -4,7 +4,7 @@ import './AuthorizationMessage.css';
 export const AuthorizationMessage = (props: any) => {
     return (
         <div className='authorizationMessage'>
-            <p>You are authorized! Thank You!</p>            
+            <p>You are authorized! Thank You!</p>
         </div>
     )
 }
