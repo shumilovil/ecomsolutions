@@ -12,14 +12,14 @@ function* sagaWorkerAuthorization(action: AuthorizeType) {
   yield put(showPreloader())
   yield call(fakeAuthorization, action.payload.login, action.payload.password)
   yield put(logIn())
-  yield put(hidePreloader())  
+  yield put(hidePreloader())
 }
 
 function* sagaWorkerResetPassword(action: ResetPasswordType) {
   yield put(showPreloader())
   yield call(fakeResetPassword, action.payload.email)
-  yield put(passwordResetConfirmed())  
-  yield put(hidePreloader())  
+  yield put(passwordResetConfirmed())
+  yield put(hidePreloader())
 }
 
 
@@ -38,7 +38,7 @@ async function fakeResetPassword(email: string) {
   await fetch('https://fakeurl',
     {
       method: 'POST',
-      body: JSON.stringify({ email: email})
+      body: JSON.stringify({ email: email })
     })
     .catch(() => { console.log('Fake password reset is complete') })
 }

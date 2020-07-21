@@ -17,7 +17,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const saga = createSagaMiddleware();
 
-const store = createStore(rootReducer,  composeEnhancers(applyMiddleware(saga)));
+const store = createStore(rootReducer, composeEnhancers(applyMiddleware(saga)));
 
 saga.run(sagaWatcher);
 

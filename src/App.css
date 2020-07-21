@@ -2,14 +2,12 @@
   font-family: HelveticaNeue;
   margin: 0 auto;
   max-width: 1500px;
-  
-  background-color: black;    
+  background-color: black;
   background-image: url(assets/background.png);
   background-size: cover;
-  
 }
 
-@media only screen and (max-width : 450px) {
+@media only screen and (max-width: 450px) {
   .App {
     max-width: 450px;
     background-size: 450px;
@@ -17,5 +15,3 @@
     background-repeat: no-repeat;
   }
 }
-
-

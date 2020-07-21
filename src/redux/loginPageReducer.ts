@@ -27,7 +27,6 @@ export const loginPageReducer = (state = initialState, action: any) => {
                 ...state,
                 isAuthorized: false
             }
-
         case SHOW_PRELOADER:
             return {
                 ...state,
