@@ -12,3 +12,7 @@ button {
   padding: 0px;
   border: none;
 }
+
+button, input {
+  outline: none;
+}
